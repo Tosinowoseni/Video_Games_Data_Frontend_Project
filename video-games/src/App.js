@@ -11,6 +11,7 @@ function App() {
     const [requestReload, setRequestReload] = useState(true);
     const [videoGames, setVideoGames] = useState([]);
     const [barChartData, setBarChartData] = useState([]);
+    const [nameBarChartData, setNameBarChartData] = useState([]);
 
     async function getGameSalesByConsole() {
         try {
@@ -42,6 +43,11 @@ function App() {
             );
             console.log(response.data);
             setVideoGames(response.data);
+            let newResponse = [];
+            response.data.forEach((i) => {
+                newResponse.push([i.platform, i.globalSales]);
+            });
+            setNameBarChartData(newResponse);
         } catch (ex) {
             console.log("Oh no something didn't work right :(");
         }
@@ -77,6 +83,7 @@ function App() {
             <SuccessfulConsolesChart
                 getData={getGameSalesByConsole}
                 data={barChartData}
+                nameData={nameBarChartData}
             />
             <Table videoGames={videoGames} getByName={getByName} />
         </div>

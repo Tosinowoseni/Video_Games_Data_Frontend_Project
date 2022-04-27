@@ -5,10 +5,18 @@ import { useEffect, useState } from "react";
 
 const SuccessfulConsolesChart = (props) => {
     const [chartData, setChartData] = useState([]);
+    const [statsChartData, setStatsChartData] = useState([]);
 
     function generateDataForChart() {
-        const data = [["Platform", "Sales"], ...chartData];
-        return data;
+        if (props.nameData.length > 0) {
+            const data = [["Platform", "Sales"], ...props.nameData];
+            console.log("From name search:", data);
+            return data;
+        } else {
+            const data = [["Platform", "Sales"], ...chartData];
+            console.log("From normal barchart stuff:", data);
+            return data;
+        }
     }
 
     useEffect(() => {
@@ -20,9 +28,10 @@ const SuccessfulConsolesChart = (props) => {
 
     useEffect(() => {
         if (props.data) {
+            console.log("before object conversion:", props.data);
             var result = Object.entries(props.data);
             setChartData(result);
-            console.log(result);
+            console.log("after object conversion:", result);
         }
     }, [props.data]);
 
