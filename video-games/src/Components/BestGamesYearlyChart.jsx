@@ -30,7 +30,7 @@ const BestGamesYearlyChart = (props) => {
 
     //<Chart chartType="ColumnChart" width="100%" height="400px" data={data} />
     return (
-        <div>
+        <div  className="bestGamesWrapper">
             <p>Best Games Yearly</p>
             <Chart
                 chartType="ColumnChart"

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./styles.css";
 
 const Header = (props) => {
     const [searchWord, setSearchWord] = useState("");

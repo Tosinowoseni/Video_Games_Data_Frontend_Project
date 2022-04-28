@@ -1,0 +1,45 @@
+/* Head Start */
+.spaceBetweenHead {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    background-color: rgb(63, 105, 243);
+    padding: 0 2rem;
+  }
+  
+  .searchBox {
+    display: flex;
+    align-content: center;
+    height: min-content;
+    margin-top: 1.7rem;
+  }
+  /*Head End */
+  .tableHolder {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    background-color: rgb(216, 213, 213);
+  }
+  .tableBlock {
+    background-color: rgb(165, 165, 165);
+    min-width: 8rem;
+  }
+  
+  .bestGamesWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(64, 124, 255);
+    padding-bottom: 30vh;
+  }
+  
+  .barChartContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
