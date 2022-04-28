@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 //Components VVV
 import Header from "./Components/header";
-import SuccessfulConsolesChart from "./Components/SuccesfulConsolesChart";
-import Table from "./Components/Table/Table";
+import SuccessfulConsolesChart from "./Components/SuccessfulConsoleChart";
+//import Table from "./Table/Table";
 import BestGamesYearlyChart from "./Components/BestGamesYearlyChart";
 //Useless import VVV
-import { getById, makeGetRequest } from "./services/AxiosRequests";
+//import { getById, makeGetRequest } from "./services/AxiosRequests";
 
 function App() {
     const [requestReload, setRequestReload] = useState(true);
@@ -103,7 +103,7 @@ function App() {
                 data={barChartData}
                 nameData={nameBarChartData}
             />
-            <Table videoGames={videoGames} getByName={getByName} />
+            {/* <Table videoGames={videoGames} getByName={getByName} /> */}
             <BestGamesYearlyChart getData={getBestGamesYearly} data={bestGames} />
         </div>
     );
