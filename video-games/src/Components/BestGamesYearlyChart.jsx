@@ -5,18 +5,11 @@ import { useEffect, useState } from "react";
 
 const BestGamesYearlyChart = (props) => {
     const [chartData, setChartData] = useState([]);
-    const [statsChartData, setStatsChartData] = useState([]);
 
     function generateDataForChart() {
-        if (props.nameData.length > 0) {
-            const data = [["Platform", "Sales"], ...props.nameData];
-            console.log("From name search:", data);
-            return data;
-        } else {
-            const data = [["Platform", "Sales"], ...chartData];
-            console.log("From normal barchart stuff:", data);
-            return data;
-        }
+        const data = [["Year", "Game"], ...chartData];
+        console.log("From best game yearly:", data);
+        return data;
     }
 
     useEffect(() => {
@@ -38,7 +31,7 @@ const BestGamesYearlyChart = (props) => {
     //<Chart chartType="ColumnChart" width="100%" height="400px" data={data} />
     return (
         <div>
-            <p>Platform By Global Sales - In Millions</p>
+            <p>Best Games Yearly</p>
             <Chart
                 chartType="ColumnChart"
                 width="100%"

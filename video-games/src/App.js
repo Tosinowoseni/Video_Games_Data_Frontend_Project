@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "./Components/header";
 import SuccessfulConsolesChart from "./Components/SuccesfulConsolesChart";
 import Table from "./Components/Table/Table";
+import BestGamesYearlyChart from "./Components/BestGamesYearlyChart";
 //Useless import VVV
 import { getById, makeGetRequest } from "./services/AxiosRequests";
 
@@ -12,6 +13,7 @@ function App() {
     const [videoGames, setVideoGames] = useState([]);
     const [barChartData, setBarChartData] = useState([]);
     const [nameBarChartData, setNameBarChartData] = useState([]);
+    const [bestGames, setBestGames] = useState([]);
 
     async function getGameSalesByConsole() {
         try {
@@ -76,6 +78,22 @@ function App() {
         }
     }
 
+    async function getBestGamesYearly() {
+        try {
+            let response = await axios.get(
+                "https://localhost:7260/api/games/bestGamesYearly"
+            );
+            console.log("Get best games: ", response.data);
+            let newResponse = [];
+            response.data.forEach((i) => {
+                newResponse.push([i.platform, i.globalSales]);
+            });
+            setBestGames(newResponse);
+        } catch (ex) {
+            console.log("Oh no something didn't work right :(", ex);
+        }
+    }
+
     return (
         <div>
             <Header getSearch={makeGetRequestBySearch} />
@@ -86,6 +104,7 @@ function App() {
                 nameData={nameBarChartData}
             />
             <Table videoGames={videoGames} getByName={getByName} />
+            <BestGamesYearlyChart getData={getBestGamesYearly} data={bestGames} />
         </div>
     );
 }
